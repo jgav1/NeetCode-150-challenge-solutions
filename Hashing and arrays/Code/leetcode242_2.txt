@@ -1,0 +1,13 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        first_dict = [0] * 26
+        second_dict = [0] * 26
+        for i in range(len(s)):
+            first_dict[ord(s[i]) - ord('a')] += 1
+            second_dict[ord(t[i]) - ord('a')] += 1
+        
+        print(first_dict)
+        print(second_dict)
+        return (first_dict == second_dict)

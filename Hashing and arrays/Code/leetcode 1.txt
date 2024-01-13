@@ -1,0 +1,24 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        if(len(nums) == 2):
+            return [0,1]
+
+        currentIndex = 0
+        look_up_dic = {}
+        complementaryIndex= 0
+
+        # fill the dictionary  with the current num in the list and its index
+        # O(n)
+
+        for i in range(len(nums)):
+            look_up_dic[nums[i]]= i
+
+        # check for the complementary numbers in the hash table
+        for current_num in nums:
+            missing = target - current_num
+            isMissingPresent = missing in look_up_dic
+            if isMissingPresent:
+                complementaryIndex = look_up_dic[missing]    
+            if (isMissingPresent) & (complementaryIndex >= 0) & (complementaryIndex != currentIndex):
+                return[currentIndex, complementaryIndex]
+            currentIndex +=1     
