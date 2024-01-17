@@ -1,0 +1,28 @@
+import operator
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        resultList = []
+        outputList = []
+
+        repetitions = {num : 0 for num in nums}
+
+        # increment counter for each time number exists
+        for key in nums:
+            repetitions[key] = repetitions[key] + 1
+
+        
+        for key, value in repetitions.items():
+            resultList.append([value,key])
+        
+        resultList = sorted(resultList,key=operator.itemgetter(0), reverse=True)
+        for k,v in resultList[:k]:
+            outputList.append(v)
+
+        return outputList 
+             
+        
+
+
+
+        return result
+        
